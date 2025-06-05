@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss';
+@import 'tailwindcss/utilities';
+@plugin "tailwindcss-motion";
+
+/** {*/
+/*  margin: 0;*/
+/*  padding: 0;*/
+/*}*/
+
+@theme {
+  --color-cgreen: #b9ff66;
+  --color-cblack: #191a23;
+  --color-cgray: #f3f3f3;
+  --font-root: "Space Grotesk", sans-serif;
+  --font-serif: "Space Grotesk", serif;
+  --font-mono: "Space Grotesk", monospace;
+  --font-cursive: "Space Grotesk", cursive;
+  --font-lora: "Lora", italic;
+  --font-loramono: "Lora", monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-root);
+  }
+
+  a, button {
+    cursor: pointer;
+  }
+}
+
+.fade-menu {
+  opacity: 0;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
