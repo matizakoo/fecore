@@ -1,10 +1,13 @@
 import {Component, HostListener} from '@angular/core';
 import {ButtonComponent} from "../../shared/button/button.component";
 import {NgIf} from "@angular/common";
+import {AnimationOptions, LottieComponent} from "ngx-lottie";
+import {AnimationItem} from "lottie-web";
 
 @Component({
+  standalone: true,
   selector: 'app-nav',
-  imports: [ButtonComponent, NgIf],
+  imports: [ButtonComponent, LottieComponent],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css', '../../../styles.css']
 })
@@ -12,6 +15,12 @@ export class NavComponent {
   open = false;
   menuIcon = '☰';
   visible = false;
+
+  options: AnimationOptions = {
+    path: '/assets/x_button.json',
+    autoplay: true,
+    loop: true
+  }
 
   constructor() {
   }
@@ -46,9 +55,18 @@ export class NavComponent {
     }
   }
 
+  @HostListener('window:keydown', ['$event'])
+  onKeyDown(event: KeyboardEvent) {
+    if (event.key === 'Escape' && this.open) {
+      this.visible = false;
+      this.menuIcon = '☰';
+    }
+  }
+
   onFadeEnd() {
     if (!this.visible) {
       this.open = false;
     }
   }
+
 }
