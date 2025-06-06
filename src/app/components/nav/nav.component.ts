@@ -1,13 +1,10 @@
 import {Component, HostListener} from '@angular/core';
-import {ButtonComponent} from "../../shared/button/button.component";
-import {NgIf} from "@angular/common";
-import {AnimationOptions, LottieComponent} from "ngx-lottie";
-import {AnimationItem} from "lottie-web";
+import {AnimationOptions} from "ngx-lottie";
 
 @Component({
   standalone: true,
   selector: 'app-nav',
-  imports: [ButtonComponent, LottieComponent],
+  imports: [],
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.css', '../../../styles.css']
 })
